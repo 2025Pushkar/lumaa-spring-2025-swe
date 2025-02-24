@@ -125,14 +125,14 @@ frontend/
    ```bash
    npm run start
    # Or for development:
-   npx nodemon server.js
+   npx server.js
    ```
 
 ### Frontend Installation
 
 1. **Setup Steps**
    ```bash
-   cd ../frontend
+   cd ../frontend/my-app
    npm install
    ```
 
@@ -161,12 +161,9 @@ frontend/
 
 View the application demonstration here: [Demo Video](https://your-video-link.com)
 
-## Notes
+## Salary Expectation
 
-- Ensure database connectivity before starting the application
-- All sensitive data is managed through environment variables
-- Code follows strict separation of concerns
-- Refer to inline documentation for detailed information
+- $30/hour
 
 ---
 
