@@ -1,104 +1,79 @@
-```markdown
 # Task Management Application
 
-This is a full‑stack Task Management application developed as part of a coding challenge. It allows users to register, log in, and perform CRUD operations on tasks. The project emphasizes functionality, code quality, and secure practices using modern technologies.
-
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Folder Structure](#folder-structure)
-- [Setup Instructions](#setup-instructions)
-  - [Backend Setup](#backend-setup)
-  - [Frontend Setup](#frontend-setup)
-- [Environment Variables](#environment-variables)
-- [Running the Application](#running-the-application)
-- [Demo Video](#demo-video)
-- [Salary Expectations](#salary-expectations)
-- [Notes](#notes)
-- [License](#license)
-
----
+A full-stack Task Management application developed as part of a coding challenge. This application enables user registration, authentication, and complete task management functionality. Built with emphasis on code quality, security, and modern development practices.
 
 ## Overview
 
-The Task Management Application is built as a coding challenge to demonstrate a complete full‑stack solution. The application provides:
-- User Registration and Login with secure password hashing (using bcrypt) and JWT‑based authentication.
-- A protected tasks interface where authenticated users can view, create, update, and delete tasks.
-- A RESTful API built with Node.js, Express, and PostgreSQL.
-- A frontend developed with React and TypeScript, using React‑Bootstrap for a polished UI.
+The Task Management Application demonstrates a comprehensive full-stack solution featuring:
 
----
+- Secure user authentication with bcrypt password hashing and JWT-based protection
+- Protected task management interface for CRUD operations
+- RESTful API powered by Node.js, Express, and PostgreSQL
+- Modern React frontend with TypeScript and React-Bootstrap
 
 ## Features
 
-- **Authentication:**
-  - Register new users.
-  - Login existing users.
-  - Secure password storage (hashed passwords).
-  - JWT-based route protection.
-  
-- **Task Management:**
-  - View tasks (split into incomplete and completed).
-  - Create new tasks.
-  - Update existing tasks (including marking as complete).
-  - Delete tasks.
-  
-- **Validation:**
-  - Input validation for registration, login, and task operations using Zod.
+### Authentication
+- User registration with secure password hashing
+- JWT-protected login system
+- Session management and route protection
 
----
+### Task Management
+- Comprehensive task view (separated by completion status)
+- Task creation with validation
+- Task updates and status changes
+- Secure task deletion
 
-## Tech Stack
+### Security & Validation
+- Input validation using Zod schema
+- Secure password storage with bcrypt
+- Protected API endpoints
+- Type-safe implementations
 
-- **Backend:**
-  - Node.js, Express
-  - Sequelize ORM with PostgreSQL
-  - bcrypt for password hashing
-  - jsonwebtoken (JWT) for authentication
-  - Zod for schema validation
-  - dotenv for environment variable management
-- **Frontend:**
-  - React with TypeScript
-  - React‑Bootstrap for UI components
-  - React Router for routing
+## Technology Stack
 
----
+### Backend Infrastructure
+- **Core:** Node.js & Express
+- **Database:** PostgreSQL with Sequelize ORM
+- **Security:** 
+  - bcrypt for password protection
+  - JWT for authentication
+  - Zod for input validation
+- **Configuration:** dotenv
 
-## Folder Structure
+### Frontend Architecture
+- **Framework:** React with TypeScript
+- **UI Components:** React-Bootstrap
+- **Navigation:** React Router
+- **State Management:** Context API
 
-### Backend
+## Project Structure
 
+### Backend Organization
 ```
 backend/
 ├── config/
-│   └── database.js         // Database connection code using Sequelize
+│   └── database.js         # Database configuration
 ├── controllers/
-│   ├── auth.js             // Registration and login logic with Zod validation
-│   └── tasks.js            // Task CRUD logic with Zod validation
+│   ├── auth.js             # Authentication logic
+│   └── tasks.js            # Task management logic
 ├── middlewares/
-│   └── auth.js             // JWT authentication middleware
+│   └── auth.js             # JWT verification
 ├── migrations/
-│   └── init.sql            // SQL script for creating the users and tasks tables
+│   └── init.sql            # Database schema
 ├── models/
-│   ├── user.js             // User model with password hashing hooks
-│   └── task.js             // Task model with associations
+│   ├── user.js             # User model
+│   └── task.js             # Task model
 ├── routes/
-│   ├── auth.js             // Auth routes (/api/auth)
-│   └── tasks.js            // Task routes (/api/tasks)
+│   ├── auth.js             # Auth endpoints
+│   └── tasks.js            # Task endpoints
 ├── utils/
-│   └── jwt.js              // JWT generation helper function
-├── app.js                  // Express app setup and middleware configuration
-└── server.js               // Server startup (listens on the specified port)
+│   └── jwt.js              # JWT utilities
+├── app.js                  # Application setup
+└── server.js               # Server entry point
 ```
 
-### Frontend
-
-*(Assuming the frontend is organized in a separate folder, e.g., `frontend/`.)*
-
+### Frontend Organization
 ```
 frontend/
 ├── public/
@@ -106,142 +81,93 @@ frontend/
 │   └── favicon.ico
 ├── src/
 │   ├── components/
-│   │   └── ui/             // Reusable UI components (cards, buttons, inputs, etc.)
+│   │   └── ui/             # Shared components
 │   ├── context/
-│   │   └── AuthContext.tsx  // Context for authentication state
+│   │   └── AuthContext.tsx # Auth state management
 │   ├── pages/
 │   │   ├── Login.tsx
 │   │   ├── Signup.tsx
 │   │   └── TaskPage.tsx
-│   ├── App.tsx             // Main App component with routing setup
-│   ├── index.tsx           // React entry point
-│   └── index.css           // Global CSS and custom styles
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── index.css
 ├── package.json
 └── tsconfig.json
 ```
 
----
+## Setup Guide
 
-## Setup Instructions
+### Backend Installation
 
-### Backend Setup
+1. **Prerequisites**
+   - Node.js (v14 or higher)
+   - PostgreSQL database
 
-1. **Pre-requisites:**
-   - Node.js (v14+)
-   - PostgreSQL
-
-2. **Clone the Repository and Navigate to the Backend Folder:**
-
+2. **Repository Setup**
    ```bash
    git clone https://github.com/yourusername/your-forked-repo.git
    cd your-forked-repo/backend
-   ```
-
-3. **Install Dependencies:**
-
-   ```bash
    npm install
    ```
 
-4. **Set Up Environment Variables:**
-
-   Create a `.env` file in the backend folder with the following variables:
-
+3. **Environment Configuration**
+   Create `.env` file:
    ```env
    DB_CONNECTION_STRING=postgres://user:password@host:port/database
    JWT_SECRET=your_jwt_secret_here
    PORT=5001
    ```
 
-5. **Run Database Migrations:**
+4. **Database Setup**
+   Execute the SQL migrations in `migrations/init.sql`
 
-   Use your preferred PostgreSQL client or command line to execute the SQL script located at `migrations/init.sql`.
-
-6. **Start the Backend Server:**
-
+5. **Launch Server**
    ```bash
    npm run start
-   ```
-
-   *Alternatively, for development with auto-restart, install nodemon and run:*
-
-   ```bash
+   # Or for development:
    npx nodemon server.js
    ```
 
-### Frontend Setup
+### Frontend Installation
 
-1. **Navigate to the Frontend Folder:**
-
+1. **Setup Steps**
    ```bash
    cd ../frontend
-   ```
-
-2. **Install Dependencies:**
-
-   ```bash
    npm install
    ```
 
-3. **Configure the API Base URL:**
-
-   If needed, create a `.env` file in the frontend folder with the API base URL:
-
+2. **Environment Configuration**
+   Create `.env` file:
    ```env
    REACT_APP_API_BASE_URL=http://localhost:5001/api
    ```
 
-   Ensure your frontend code uses this variable when making API requests.
-
-4. **Start the Frontend Application:**
-
+3. **Launch Application**
    ```bash
    npm start
    ```
 
----
-
 ## Running the Application
 
-- **Backend:**  
-  The backend server runs on the port specified in your `.env` (default is 5001). It exposes endpoints under `/api/auth` and `/api/tasks`.
+1. **Backend Service**
+   - Runs on configured port (default: 5001)
+   - Exposes `/api/auth` and `/api/tasks` endpoints
 
-- **Frontend:**  
-  The React app typically runs on port 3000 and interacts with the backend using the configured API base URL.
+2. **Frontend Application**
+   - Runs on port 3000
+   - Connects to backend via configured API URL
 
----
+## Demo
 
-## Demo Video
-
-A short demo video demonstrating user registration, login, task creation, update, deletion, and logout is available here:
-
-[Demo Video Link](https://your-video-link.com)
-
-*(Replace the link above with your actual demo video URL.)*
-
----
-
-## Salary Expectations
-
-As requested, my salary expectation is **$[Your Expected Salary] per month**.
-
----
+View the application demonstration here: [Demo Video](https://your-video-link.com)
 
 ## Notes
 
-- Ensure that your database is running and accessible via the connection string provided.
-- All sensitive configuration (passwords, secrets, etc.) is managed via environment variables.
-- The code is structured with clear separation of concerns for maintainability.
-- For any issues or questions, please refer to the comments in the code or contact me directly.
+- Ensure database connectivity before starting the application
+- All sensitive data is managed through environment variables
+- Code follows strict separation of concerns
+- Refer to inline documentation for detailed information
 
 ---
 
-## License
-
-This project is provided for educational purposes. Feel free to use and modify it as needed.
-
----
-
-Thank you for reviewing my submission!
-```
-
+*For questions or support, please refer to the documentation or contact me.*
