@@ -159,7 +159,7 @@ frontend/
 
 ## Demo
 
-View the application demonstration here: [Demo Video](https://your-video-link.com)
+View the application demonstration here: [Demo Video](https://youtu.be/I9oIS2QKINQ)
 
 ## Salary Expectation
 
