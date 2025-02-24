@@ -105,8 +105,8 @@ frontend/
 
 2. **Repository Setup**
    ```bash
-   git clone [https://github.com/yourusername/your-forked-repo.git](https://github.com/2025Pushkar/lumaa-spring-2025-swe.git)
-   cd your-forked-repo/backend
+   git clone https://github.com/2025Pushkar/lumaa-spring-2025-swe.git
+   cd lumaa-spring-2025-swe/backend
    npm install
    ```
 
