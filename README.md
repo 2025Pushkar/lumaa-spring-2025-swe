@@ -11,6 +11,10 @@ The Task Management Application demonstrates a comprehensive full-stack solution
 - RESTful API powered by Node.js, Express, and PostgreSQL
 - Modern React frontend with TypeScript and React-Bootstrap
 
+## Demo
+
+View the application demonstration here: [Demo Video](https://youtu.be/I9oIS2QKINQ)
+
 ## Features
 
 ### Authentication
@@ -156,15 +160,6 @@ frontend/
 2. **Frontend Application**
    - Runs on port 3000
    - Connects to backend via configured API URL
-
-## Demo
-
-View the application demonstration here: [Demo Video](https://youtu.be/I9oIS2QKINQ)
-
-## Salary Expectation
-
-- $30/hour
-
 ---
 
 *For questions or support, please refer to the documentation or contact me.*
